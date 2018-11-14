@@ -2,28 +2,29 @@
 package com.gob.game;
 
 import com.badlogic.gdx.Gdx;
-import com.badlogic.gdx.audio.Sound;
+
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.math.Rectangle;
-import static com.gob.game.GamePlane.SCREEN_HEIGHT;
 
 public class Player extends Rectangle {
     
-    private Sound soundFly;
-    private Texture texture;
+
+    private Texture texture, healthTex;
     public float fly;
     public boolean canFly = true;
-    public Player(Texture texture){
+    public Player(Texture texture, Texture healtTex){
         this.texture = texture;
         this.height = texture.getHeight();
         this.width = texture.getWidth();
-//        soundFly = Gdx.audio.newSound(Gdx.files.internal("soundPlayer.ogg"));
+        this.healthTex = healtTex;
+
     } 
     
 
     public void draw(SpriteBatch batch){
         batch.draw(texture, x , y);
+        batch.draw(healthTex, x, y + height+5, width * GamePlane.HEALTH/1000, 2);
         
     }
     
@@ -34,6 +35,15 @@ public class Player extends Rectangle {
 //          soundFly.play();
          }
     }
+    
+        public float getX(){
+        return x;
+    }
+    
+     public float getY(){
+        return y;
+    }
+
         
 }
 

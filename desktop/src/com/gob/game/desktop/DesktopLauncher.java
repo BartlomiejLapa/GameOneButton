@@ -11,7 +11,7 @@ public class DesktopLauncher {
 		LwjglApplicationConfiguration config = new LwjglApplicationConfiguration();
                 config.width = GamePlane.SCREEN_WIDTH;
                 config.height = GamePlane.SCREEN_HEIGHT;
-                config.fullscreen = false;
+                config.fullscreen = true;
                 config.vSyncEnabled = true;
                 config.resizable = false;
 		new LwjglApplication(new GamePlane(), config);

@@ -24,20 +24,16 @@ public class Explosion {
         statetime = 0;
         
         if (animation == null) 
-            animation = new Animation(FRAME_LENGTH, TextureRegion.split(new Texture("explosion.png"), SIZE, SIZE)[0]);     
+            animation = new Animation(FRAME_LENGTH, TextureRegion.split(new Texture(GamePlane.pathExplosion), SIZE, SIZE)[0]);     
     }
     
     public void update (float deltatime){
         statetime += deltatime;
         if(animation.isAnimationFinished(statetime)) 
             remove = true;
-        
     }
     
     public void render (SpriteBatch batch){
        batch.draw((TextureRegion) animation.getKeyFrame(statetime), x, y, SIZE, SIZE);
-        
-        
     }
-    
 }
